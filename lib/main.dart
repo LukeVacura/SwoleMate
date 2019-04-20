@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
+import 'exerciselist.dart';
 
-void main() => runApp(GettingStarted());
+void main() => runApp(MaterialApp(
+  title: 'SwoleMate Home',
+  home: HomePage(),
+  theme: new ThemeData(
+    brightness: Brightness.dark,
+    primarySwatch: Colors.blue,
+  )
+));
 
-class GettingStarted extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
-      theme: new ThemeData(
-        primarySwatch: Colors.blue,
-        brightness: Brightness.dark,
-        
-      ),
-    title: "SwoleMate",
-    home: new Scaffold(
-    appBar: new AppBar(
+    return Scaffold(
+      appBar: AppBar(
         title: new Text("SwoleMate", style: TextStyle(fontSize: 16.0),),
         
         centerTitle: true,
@@ -59,10 +60,12 @@ class GettingStarted extends StatelessWidget {
         child: new Icon(Icons.add),
         backgroundColor: Colors.red,
         onPressed: () {
-          print("Clicked");
-        },
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => MyEmployeeList()),
+  );
+},
       ),
-      )
     );
     
 

@@ -3,6 +3,8 @@ import 'package:myapp/entry.dart';
 import 'dart:async';
 import 'database/database.dart';
 import 'model/employee.dart';
+import 'model/models.dart';
+import 'main.dart';
 
 final scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -13,6 +15,12 @@ Future<List<Employee>> fetchEmployeesFromDatabase() async {
   var dbHelper = DBHelper();
   Future<List<Employee>> employees = dbHelper.getEmployees();
   return employees;
+}
+
+Future<List<Exercise>> fetchExercisesFromDatabase() async {
+  var dbHelper = DBHelper();
+  Future<List<Exercise>> exercises = dbHelper.getExercises();
+  return exercises;
 }
 
 class MyEmployeeList extends StatefulWidget {
@@ -32,15 +40,15 @@ class MyEmployeeListPageState extends State<MyEmployeeList> {
               icon: const Icon(Icons.view_list),
               tooltip: 'Next choice',
               onPressed: () {
-              navigateToEmployeeList();
+              navigateToHome();
               },
             ),
           ]
       ),
       body: new Container(
         padding: new EdgeInsets.all(16.0),
-        child: new FutureBuilder<List<Employee>>(
-          future: fetchEmployeesFromDatabase(),
+        child: new FutureBuilder<List<Exercise>>(
+          future: fetchExercisesFromDatabase(),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return new ListView.builder(
@@ -49,10 +57,10 @@ class MyEmployeeListPageState extends State<MyEmployeeList> {
                     return new Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          new Text(snapshot.data[index].firstName,
+                          new Text(snapshot.data[index].exerciseName,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 18.0)),
-                          new Text(snapshot.data[index].lastName,
+                          new Text(snapshot.data[index].exerciseID,
                               style: new TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 14.0)),
                           new Divider()
@@ -72,10 +80,10 @@ class MyEmployeeListPageState extends State<MyEmployeeList> {
         .showSnackBar(new SnackBar(content: new Text(text)));
   }
 
-  void navigateToEmployeeList(){
-     Navigator.push(
+  void navigateToHome(){
+     Navigator.pop(
     context,
-    new MaterialPageRoute(builder: (context) => new MyHomePage()),
+    new MaterialPageRoute(builder: (context) => new HomePage()),
   );
   }
 }

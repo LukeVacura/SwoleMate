@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\Luke Vacura\\SE\\GitHub\\SwoleMate\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\ry2666lu\\Documents\\GitHub\\SwoleMate\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "D:\\Luke Vacura\\SE\\GitHub\\SwoleMate\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\ry2666lu\\Documents\\GitHub\\SwoleMate\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
