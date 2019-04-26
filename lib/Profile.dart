@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'exerciselist.dart';
-import 'Profile.dart';
 import 'Progress.dart';
+import 'main.dart';
 
 void main() => runApp(MaterialApp(
   title: 'SwoleMate Home',
-  home: HomePage(),
+  home: ProfilePage(),
   theme: new ThemeData(
     brightness: Brightness.dark,
     primarySwatch: Colors.blue,
   )
 ));
 
-class HomePage extends StatelessWidget {
+class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,20 +44,19 @@ class HomePage extends StatelessWidget {
        ),
        new ListTile(
          title: new Text("Home"),
-         trailing: new Icon(Icons.home)
-       ),
-        new ListTile(
-         title: new Text("Profile"),
-         trailing: new Icon(Icons.person),
+         trailing: new Icon(Icons.home),
          onTap: (){
           
            Navigator.push(
             context,
-          MaterialPageRoute(builder: (context) => ProfilePage())
+          MaterialPageRoute(builder: (context) => HomePage())
          );
          }
-        ),
-       
+       ),
+        new ListTile(
+         title: new Text("Profile"),
+         trailing: new Icon(Icons.person)
+       ),
         new ListTile(
          title: new Text("Progress"),
          trailing: new Icon(Icons.pie_chart),
